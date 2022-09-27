@@ -18,4 +18,11 @@ RSpec.describe AlbumRepository do
     expect(albums[0].id).to eq "1"
     expect(albums[0].title).to eq 'Doolittle'
   end
+
+  it "returns a single Album object" do
+    repo = AlbumRepository.new
+    album = repo.find(1)
+    expect(album.id).to eq "1"
+    expect(album.title).to eq 'Doolittle'
+  end
 end
