@@ -19,17 +19,17 @@ class ArtistRepository
   end
 
   def find(id)
-    result = DatabaseConnection.exec_params("SELECT id, name, genre FROM artists WHERE id = #{id};", [])
+    sql = "SELECT id, name, genre FROM artists WHERE id = $1;"
+    params = [id]
+    result = DatabaseConnection.exec_params(sql, params)
     
-    artist = nil
-    result.each { |record|
+    record = result[0]
+    
     artist = Artist.new
     artist.id = record['id']
     artist.name = record['name']
     artist.genre = record['genre']
-    artist = artist
-    }
-  
+    
     artist
   end
 end

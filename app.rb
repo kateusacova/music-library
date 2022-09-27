@@ -5,7 +5,6 @@ require_relative 'lib/album_repository'
 DatabaseConnection.connect('music_library')
 
 album_repository = AlbumRepository.new
+artist_repository = ArtistRepository.new
 
-album_repository.all.each {|album|
-  p album
-}
+p artist_repository.find(1)
