@@ -3,21 +3,15 @@ require_relative "../lib/album_repository.rb"
 require_relative "../lib/artist_repository.rb"
 require 'dotenv/load'
 
-def reset_albums_table
-  seed_sql = File.read('spec/seeds_albums.sql')
-  connection = PG.connect({ host: ENV['HOST'], dbname: 'music_library_test', user: 'postgres', password: ENV['PASSWORD'] })
-  connection.exec(seed_sql)
-end
-
-def reset_artists_table
-  seed_sql = File.read('spec/seeds_artists.sql')
+def reset_tables
+  seed_sql = File.read('spec/seeds_music_library.sql')
   connection = PG.connect({ host: ENV['HOST'], dbname: 'music_library_test', user: 'postgres', password: ENV['PASSWORD'] })
   connection.exec(seed_sql)
 end
 
 RSpec.describe Application do
-  before(:each) do 
-    reset_albums_table
+  before(:each) do
+    reset_tables
   end
 
   it "Runs the program" do

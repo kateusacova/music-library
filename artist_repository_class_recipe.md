@@ -44,6 +44,23 @@ Using comments, define the method signatures (arguments and return value) and wh
 class ArtistRepository
   def all
   end
+
+  def find_with_albums(id)
+#   SELECT artists.id AS id,
+#        artists.name AS name,
+#        artists.genre AS genre,
+#        albums.id AS album_id,
+#        albums.title AS title,
+#        albums.release_year AS release_year
+#   FROM artists
+#   JOIN albums
+#   ON albums.artist_id = artists.id
+#   WHERE artists.id = $1;
+
+# Return an Artist object
+# with an array of Album objects
+
+          
 end
 ```
 
